@@ -174,8 +174,17 @@ curl -v --data 'json={"foo":"bar"}' 'http://127.0.0.1:8888/test.local'
 
 => データがログファイルに書き込まれる。
 
+ログファイルの格納先フォルダを確認する:
+
+```sh
+ls /var/log/td-agent/test/
+#出力例> buffer.b5f9cf524f4f2185d9f3fd07e9f88d190.log
+#出力例> buffer.b5f9cf524f4f2185d9f3fd07e9f88d190.log.meta
+```
+
 書き込まれた内容を確認するには、次のコマンドを実行する:
 
 ```sh
 cat /var/log/td-agent/test/*.log
+#出力例> 2023-04-21T02:21:58+00:00       test.local      {"foo":"bar"}
 ```
